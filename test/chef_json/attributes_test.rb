@@ -31,5 +31,9 @@ module ChefJson
 			assert_equal "node['version']", attribute[:value]
 		end
 
+		def test_it_can_parse_attributes_with_hash
+			attribute = Attributes.parse("default['postgresql']['version'] = { key: 'value', key2 => 'value2'}")
+			assert_equal "{ key: 'value', key2 => 'value2'}", attribute[:value]
+		end
 	end
 end
