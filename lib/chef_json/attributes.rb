@@ -2,9 +2,10 @@ module ChefJson
 	class Attributes
 
 		def self.parse input
-			attributes = {}
-			input.match /^\s*default(\[.*\])\s*=(\s*[{ :,=>}\w"'-.\[\]]*)/
-			attributes =  { param: $1.strip , value: $2.strip} unless $1.nil? and $2.nil?
+			attributes = []
+			input.scan(/^\s*default(\[.*\])\s*=(\s*[{ :,=>%}\w"'-.\[\]]*)/){ |group1, group2|
+				attributes <<  { param: group1.strip , value: group2.strip} unless group1.nil? and group2.nil?
+			}
 			attributes
 		end
 	end

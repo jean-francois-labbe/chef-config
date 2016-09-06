@@ -6,8 +6,15 @@ module ChefJson
 			@path = path
 		end
 
-		def recipes_path
-			"#{@path}/recipes"
+		def attributes
+		attributes_file = File.open(File.join(@path,'attributes/default.rb')).read
+Attributes.parse attributes_file
+		end
+
+		def name
+			metadata = File.open(File.join(@path,'metadata.rb')).read
+			metadata.match /name\s*["'](.*)["']$/ 
+			$1
 		end
 
 		def recipes
@@ -18,6 +25,11 @@ module ChefJson
 				recipes = []
 			end
 			recipes
+		end
+
+		private
+		def recipes_path
+			File.join(@path,'recipes')
 		end
 
 	end
