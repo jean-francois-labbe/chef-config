@@ -10,6 +10,14 @@ module ChefJson
 			cookbook = Cookbook.new(@cookbook_path)
 			assert_equal 'fake-cookbook', cookbook.name
 		end
+		def test_cookbook_has_a_description
+			cookbook = Cookbook.new(@cookbook_path)
+			assert_equal 'A fake cookbook', cookbook.description
+		end
+		def test_cookbook_has_a_version
+			cookbook = Cookbook.new(@cookbook_path)
+			assert_equal '1.0.0', cookbook.version
+		end
 
 		def test_cookbook_list_attributes
 			cookbook = Cookbook.new(@cookbook_path)

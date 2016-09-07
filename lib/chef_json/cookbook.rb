@@ -7,13 +7,22 @@ module ChefJson
 		end
 
 		def attributes
-		attributes_file = File.open(File.join(@path,'attributes/default.rb')).read
-Attributes.parse attributes_file
+			attributes_file = File.open(File.join(@path,'attributes/default.rb')).read
+			Attributes.parse attributes_file
 		end
 
 		def name
-			metadata = File.open(File.join(@path,'metadata.rb')).read
-			metadata.match /name\s*["'](.*)["']$/ 
+			read_metadata.match /name\s*["'](.*)["']$/ 
+			$1
+		end
+
+		def description
+			read_metadata.match /description\s*["'](.*)["']$/ 
+			$1
+		end
+
+		def version
+			read_metadata.match /version\s*["'](.*)["']$/ 
 			$1
 		end
 
@@ -32,5 +41,8 @@ Attributes.parse attributes_file
 			File.join(@path,'recipes')
 		end
 
+		def read_metadata
+			File.open(File.join(@path,'metadata.rb')).read
+		end
 	end
 end
