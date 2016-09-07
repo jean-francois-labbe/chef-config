@@ -3,7 +3,7 @@ require 'test_helper'
 module ChefJson
 	class CookbookTest < Minitest::Test
 		def setup
-			@cookbook_path = File.expand_path('fixtures/fake-cookbook')
+			@cookbook_path = File.expand_path('fixtures/chef-repo-fake/cookbooks/fake-cookbook')
 		end
 
 		def test_cookbook_has_a_name
