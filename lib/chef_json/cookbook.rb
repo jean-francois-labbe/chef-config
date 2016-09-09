@@ -12,17 +12,17 @@ module ChefJson
 		end
 
 		def name
-			read_metadata.match /name\s*["'](.*)["']$/ 
+			read_metadata.match(/name\s*["'](.*)["']$/)
 			$1
 		end
 
 		def description
-			read_metadata.match /description\s*["'](.*)["']$/ 
+			read_metadata.match(/description\s*["'](.*)["']$/)
 			$1
 		end
 
 		def version
-			read_metadata.match /version\s*["'](.*)["']$/ 
+			read_metadata.match(/version\s*["'](.*)["']$/)
 			$1
 		end
 
