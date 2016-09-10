@@ -7,8 +7,8 @@ module ChefJson
 		end
 
 		def cookbooks
-			cookbooks = Dir.entries cookbooks_path
-			cookbooks - ["..", "."]
+			cookbooks = (Dir.entries cookbooks_path) - ["..", "."]
+			cookbooks.map{ |c| Cookbook.new(File.join(cookbooks_path,c))}
 		end
 
 		private
@@ -16,8 +16,5 @@ module ChefJson
 			File.join(@path,'cookbooks')
 		end
 
-		def read_metadata
-			File.open(File.join(@path,'metadata.rb')).read
-		end
 	end
 end
