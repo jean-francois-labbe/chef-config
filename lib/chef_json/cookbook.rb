@@ -7,8 +7,13 @@ module ChefJson
 		end
 
 		def attributes
-			attributes_file = File.open(File.join(@path,'attributes/default.rb')).read
-			Attributes.parse attributes_file
+			begin
+				attributes_file = File.open(File.join(@path,'attributes/default.rb')).read
+				Attributes.parse attributes_file
+			rescue
+				[]	
+			end
+
 		end
 
 		def name

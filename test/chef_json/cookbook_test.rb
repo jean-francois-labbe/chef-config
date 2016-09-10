@@ -24,6 +24,12 @@ module ChefJson
 			assert_equal 4, cookbook.attributes.size
 		end
 
+		def test_cookbook_attributes_is_empty_if_no_attribute_file_exists
+			@cookbook_without_attributes_path = File.expand_path('fixtures/chef-repo-fake/cookbooks/fake-cookbook_no_attributes')
+			cookbook = Cookbook.new(@cookbook_without_attributes_path)
+			assert_equal 0, cookbook.attributes.size
+		end
+
 		def test_cookbook_recipes_returns_an_array
 			cookbook = Cookbook.new('')
 			assert_equal Array, cookbook.recipes.class

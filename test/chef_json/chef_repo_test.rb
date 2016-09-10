@@ -9,8 +9,8 @@ module ChefJson
 
 		def test_has_cookbooks
 			chef_repo = ChefRepo.new(@chef_repo_path)
-			assert_equal 1, chef_repo.cookbooks.size
-			assert_equal 'fake-cookbook', chef_repo.cookbooks.first.name
+			assert_equal 2, chef_repo.cookbooks.size
+			assert_equal ['fake-cookbook-no-attributes','fake-cookbook'], chef_repo.cookbooks.map{|c| c.name}
 		end
 
 	end
