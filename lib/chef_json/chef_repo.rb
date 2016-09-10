@@ -7,8 +7,8 @@ module ChefJson
 		end
 
 		def cookbooks
-			cookbooks = (Dir.entries cookbooks_path) - ["..", "."]
-			cookbooks.map{ |c| Cookbook.new(File.join(cookbooks_path,c))}
+			cookbooks = Dir.glob("#{cookbooks_path}/**").select {|f| File.directory? f}
+			cookbooks.map{ |c| Cookbook.new(c)}
 		end
 
 		private
