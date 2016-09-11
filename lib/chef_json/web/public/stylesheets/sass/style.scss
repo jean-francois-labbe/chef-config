@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: modular-scale(6 - $i);
+  }
+}
