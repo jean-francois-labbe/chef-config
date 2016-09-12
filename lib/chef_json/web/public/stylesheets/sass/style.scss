@@ -2,10 +2,117 @@
 
 @import "bourbon/bourbon";
 @import "base/base";
+$visual-grid: false !global;
+$visual-grid-index: back !default;
+$visual-grid-color: blue;
+$visual-grid-opacity: 0.2;
+$grid-columns: 12;
 @import "neat/neat";
 
+a{
+	cursor: pointer;
+}
+
 @for $i from 1 through 6 {
-  h#{$i} {
-    font-size: modular-scale(6 - $i);
+	h#{$i} {
+		font-size: modular-scale(6 - $i,1.12em);
+		margin: 0 0 0.2em 0;
+	}
+}
+
+.row-wrapper {
+	@include row();
+
+	.outer-container {
+		@include outer-container;
+	}  
+}
+
+fieldset{
+	border-left: 2px solid black;
+	margin-top: 10px;
+	&:before {
+		content: " ";
+		border-top: 2px solid black;
+		padding: 0px 70px 0px 0px;
+	}
+	&:after
+	{
+		content:" ";
+		border-bottom: 2px solid black;
+		padding: 0px 70px 0px 0px;
+	}
+
+	.cookbook-parameters{
+		@include shift(1);
+	}
+
+	.cookbook-name{
+		margin: 0 0 10px 10px;
+	}
+}
+
+
+.expander {
+	$base-font-size: 1em !default;
+	$base-line-height: 1.5em !default;
+	$base-spacing: 1.5em !default;
+	$action-color: #477DCA !default;
+	$dark-gray: #333 !default;
+	$light-gray: #DDD !default;
+	$base-font-color: $dark-gray !default;
+	$expander-arrow-width: 0.7em;
+	$expander-toggle-size: 1em;
+	$expander-toggle-arrow-size: $expander-toggle-size;
+	$expander-toggle-margin: 1em;
+
+	width: 60%;
+
+	.expander-trigger {
+		color: $action-color;
+		cursor: pointer;
+		display: block;
+		font-size: $expander-toggle-size;
+		text-decoration: none;
+		user-select: none;
+
+		&::before {
+			content: "\25BC";
+			font-size: $expander-arrow-width;
+			margin-right: 0.5em;
+		}
+	}
+
+	.expander-hidden {
+		&::before {
+			content: "\25BA";
+			font-size: $expander-arrow-width;
+		}
+	}
+
+	.expander-hidden + .expander-content {
+		display: none;
+	}
+}
+
+$small-font-size: 0.75em;
+$badges: (
+  "alert": #fff6bf,
+  "default": #999,
+  "error": #fbe3e4,
+  "notice": #e5edf8,
+  "success": #e6efc2,
+) !default;
+
+@each $badge-type, $color in $badges {
+  .badge-#{$badge-type} {
+    background-color: $color;
+    border-radius: $small-font-size * 5;
+    color: darken($color, 60%);
+    display: inline-block;
+    font-size: $small-font-size;
+    line-height: 1;
+    padding: 0.4em 1.2em;
   }
 }
+

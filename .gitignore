@@ -8,3 +8,4 @@
 /spec/reports/
 /tmp/
 *.swp
+lib/chef_json/web/.sass-cache

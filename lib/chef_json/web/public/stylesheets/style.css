@@ -7,7 +7,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   cursor: pointer;
   display: inline-block;
   font-family: "DejaVu Sans Mono", monospace;
-  font-size: 1em;
+  font-size: 0.85em;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
@@ -46,7 +46,7 @@ input,
 select {
   display: block;
   font-family: "DejaVu Sans Mono", monospace;
-  font-size: 1em; }
+  font-size: 0.85em; }
 
 input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
 select[multiple] {
@@ -56,7 +56,7 @@ select[multiple] {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
   font-family: "DejaVu Sans Mono", monospace;
-  font-size: 1em;
+  font-size: 0.85em;
   margin-bottom: 0.75em;
   padding: 0.5em;
   transition: border-color 150ms ease;
@@ -135,7 +135,7 @@ th {
 body {
   color: #333;
   font-family: "DejaVu Sans Mono", monospace;
-  font-size: 1em;
+  font-size: 0.85em;
   line-height: 1.5; }
 
 h1,
@@ -144,8 +144,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  font-size: 1em;
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 0.85em;
   line-height: 1.2;
   margin: 0 0 0.75em; }
 
@@ -177,22 +177,126 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+a {
+  cursor: pointer; }
+
 h1 {
-  font-size: 4.20873em; }
+  font-size: 4.71377em;
+  margin: 0 0 0.2em 0; }
 
 h2 {
-  font-size: 3.15733em; }
+  font-size: 3.53621em;
+  margin: 0 0 0.2em 0; }
 
 h3 {
-  font-size: 2.36859em; }
+  font-size: 2.65282em;
+  margin: 0 0 0.2em 0; }
 
 h4 {
-  font-size: 1.77689em; }
+  font-size: 1.99012em;
+  margin: 0 0 0.2em 0; }
 
 h5 {
-  font-size: 1.333em; }
+  font-size: 1.49296em;
+  margin: 0 0 0.2em 0; }
 
 h6 {
-  font-size: 1em; }
+  font-size: 1.12em;
+  margin: 0 0 0.2em 0; }
+
+.row-wrapper {
+  display: block; }
+  .row-wrapper::after {
+    clear: both;
+    content: "";
+    display: block; }
+  .row-wrapper .outer-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; }
+    .row-wrapper .outer-container::after {
+      clear: both;
+      content: "";
+      display: block; }
+
+fieldset {
+  border-left: 2px solid black;
+  margin-top: 10px; }
+  fieldset:before {
+    content: " ";
+    border-top: 2px solid black;
+    padding: 0px 70px 0px 0px; }
+  fieldset:after {
+    content: " ";
+    border-bottom: 2px solid black;
+    padding: 0px 70px 0px 0px; }
+  fieldset .cookbook-parameters {
+    margin-left: 8.5298%; }
+  fieldset .cookbook-name {
+    margin: 0 0 10px 10px; }
+
+.expander {
+  width: 60%; }
+  .expander .expander-trigger {
+    color: #1565c0;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    text-decoration: none;
+    user-select: none; }
+    .expander .expander-trigger::before {
+      content: "\25BC";
+      font-size: 0.7em;
+      margin-right: 0.5em; }
+  .expander .expander-hidden::before {
+    content: "\25BA";
+    font-size: 0.7em; }
+  .expander .expander-hidden + .expander-content {
+    display: none; }
+
+.badge-alert {
+  background-color: #fff6bf;
+  border-radius: 3.75em;
+  color: #8c7800;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.4em 1.2em; }
+
+.badge-default {
+  background-color: #999;
+  border-radius: 3.75em;
+  color: black;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.4em 1.2em; }
+
+.badge-error {
+  background-color: #fbe3e4;
+  border-radius: 3.75em;
+  color: #97161b;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.4em 1.2em; }
+
+.badge-notice {
+  background-color: #e5edf8;
+  border-radius: 3.75em;
+  color: #244e87;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.4em 1.2em; }
+
+.badge-success {
+  background-color: #e6efc2;
+  border-radius: 3.75em;
+  color: #56651a;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 1;
+  padding: 0.4em 1.2em; }
 
 /*# sourceMappingURL=style.css.map */
