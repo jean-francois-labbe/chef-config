@@ -1,4 +1,4 @@
-# ChefJson [![Build Status](https://travis-ci.org/jefff35/chef-config.svg?branch=master)](https://travis-ci.org/jefff35/chef-config) [![Code Climate](https://codeclimate.com/github/jefff35/chef-config/badges/gpa.svg)](https://codeclimate.com/github/jefff35/chef-config)
+# ChefJson [![Build Status](https://travis-ci.org/jefff35/chef-config.svg?branch=master)](https://travis-ci.org/jefff35/chef-config) [![Code Climate](https://codeclimate.com/github/jefff35/chef-config/badges/gpa.svg)](https://codeclimate.com/github/jefff35/chef-config) [![Test Coverage](https://codeclimate.com/github/jefff35/chef-config/badges/coverage.svg)](https://codeclimate.com/github/jefff35/chef-config/coverage)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/chef_json`. To experiment with that code, run `bin/console` for an interactive prompt.
 
