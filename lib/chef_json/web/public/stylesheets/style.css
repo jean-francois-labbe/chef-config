@@ -219,20 +219,24 @@ h6 {
       content: "";
       display: block; }
 
-fieldset {
+.cookbook-recipes-container {
+  margin-left: 8.5298%; }
+
+.cookbook-parameters-container {
+  margin-left: 8.5298%;
   border-left: 2px solid black;
   margin-top: 10px; }
-  fieldset:before {
+  .cookbook-parameters-container:before {
     content: " ";
     border-top: 2px solid black;
-    padding: 0px 70px 0px 0px; }
-  fieldset:after {
+    padding: 0 70px 0 0; }
+  .cookbook-parameters-container:after {
     content: " ";
     border-bottom: 2px solid black;
-    padding: 0px 70px 0px 0px; }
-  fieldset .cookbook-parameters {
-    margin-left: 8.5298%; }
-  fieldset .cookbook-name {
+    padding: 0 70px 0 0; }
+  .cookbook-parameters-container .cookbook-parameters {
+    margin: 0 0 0 10px; }
+  .cookbook-parameters-container .cookbook-name {
     margin: 0 0 10px 10px; }
 
 .expander {

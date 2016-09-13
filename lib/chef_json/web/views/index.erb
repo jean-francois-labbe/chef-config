@@ -4,11 +4,12 @@
 		<h2>Cookbooks recipies</h2>
 		<% @cookbooks.each do |c| %>
 			<fieldset class="expander">
-				<a href="javascript:void(0)" class="expander-trigger expander-hidden cookbook-name">
+				<a href="javascript:void(0)" class="expander-trigger expander-hidden">
 					<%= c.name %>
+					<span class="badge-notice">0/<%= c.recipes.size %></span>
 				</a>
-				<div class="expander-content cookbook-parameters">
-						<%= c.recipes.join(', ') %>
+				<div class="expander-content cookbook-recipes-container">
+					<%= c.recipes.join(', ') %>
 				</div>
 			</fieldset>
 		<% end %>
@@ -22,12 +23,14 @@
 						<span class="badge-notice">0/<%= c.attributes.size %></span>
 
 					</a>
-					<div class="expander-content cookbook-parameters">
-						<% c.attributes.each do |a| %>
+					<div class="expander-content cookbook-parameters-container">
+						<div class="cookbook-parameters">
+							<% c.attributes.each do |a| %>
 
-							<label for="name"><%= a[:param] %></label>
-							<input id="name" type="text" placeholder="<%= a[:value] %>">
-						<% end %>
+								<label for="name"><%= a[:param] %></label>
+								<input id="name" type="text" placeholder="<%= a[:value] %>">
+							<% end %>
+						</div>
 					</div>
 				</fieldset>
 			<% end %>
