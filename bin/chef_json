@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/chef_json/web/chef_gui'
