@@ -15,7 +15,7 @@
 		<% end %>
 		<hr/>
 		<h2>Cookbooks parameters</h2>
-		<form>
+		<form method="post" action="/">
 			<% @cookbooks.each do |c| %>
 				<fieldset class="expander">
 					<a href="javascript:void(0)" class="expander-trigger expander-hidden cookbook-name">
@@ -28,12 +28,13 @@
 							<% c.attributes.each do |a| %>
 
 								<label for="name"><%= a[:param] %></label>
-								<input id="name" type="text" placeholder="<%= a[:value] %>">
+								<input id="name" name="<%= a[:param].delete "'" %>" type="text" placeholder="<%= a[:value] %>">
 							<% end %>
 						</div>
 					</div>
 				</fieldset>
 			<% end %>
+    	<input type="submit">
 		</form>
 	</div>
 </div>
