@@ -16,6 +16,10 @@
 		<hr/>
 		<h2>Cookbooks parameters</h2>
 		<form method="post" action="/">
+
+			<label for="fqdn">Fqdn</label>
+			<input id="fqdn" name="fqdn" type="text" placeholder="ip or domain (machine.online.com)">
+
 			<% @cookbooks.each do |c| %>
 				<fieldset class="expander">
 					<a href="javascript:void(0)" class="expander-trigger expander-hidden cookbook-name">
