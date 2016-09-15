@@ -3,15 +3,15 @@
 		<h1>Chef config</h1>
 		<h2>Cookbooks recipies</h2>
 		<% @cookbooks.each do |c| %>
-			<fieldset class="expander">
-				<a href="javascript:void(0)" class="expander-trigger expander-hidden">
-					<%= c.name %>
-					<span class="badge-notice">0/<%= c.recipes.size %></span>
-				</a>
-				<div class="expander-content cookbook-recipes-container">
-					<%= c.recipes.join(', ') %>
-				</div>
-			</fieldset>
+		<fieldset class="expander">
+			<a href="javascript:void(0)" class="expander-trigger expander-hidden">
+				<%= c.name %>
+				<span class="badge-notice">0/<%= c.recipes.size %></span>
+			</a>
+			<div class="expander-content cookbook-recipes-container">
+				<%= c.recipes.join(', ') %>
+			</div>
+		</fieldset>
 		<% end %>
 		<hr/>
 		<h2>Cookbooks parameters</h2>
@@ -20,34 +20,71 @@
 			<label for="fqdn">Fqdn</label>
 			<input id="fqdn" name="fqdn" type="text" placeholder="ip or domain (machine.online.com)">
 
-			<% @cookbooks.each do |c| %>
-				<fieldset class="expander">
-					<a href="javascript:void(0)" class="expander-trigger expander-hidden cookbook-name">
-						<%= c.name %>
-						<span class="badge-notice">0/<%= c.attributes.size %></span>
+			<div class="vertical-tabs-container">
 
-					</a>
-					<div class="expander-content cookbook-parameters-container">
-						<div class="cookbook-parameters">
-							<% c.attributes.each do |a| %>
+				<div class="vertical-tabs">
+					<% @cookbooks.each_with_index do |cookbook,index| %>
+						<a href="javascript:void(0)" class="js-vertical-tab vertical-tab" rel="tab<%= index %>">
+							<%= cookbook.name %>
+							<span class="badge-notice">0/<%= cookbook.attributes.size %></span>
+						</a>
+					<% end %>
+				</div>
 
-								<label for="name"><%= a[:param] %></label>
-								<input id="name" name="<%= a[:param].delete "'" %>" type="text" placeholder="<%= a[:value] %>">
-							<% end %>
-						</div>
-					</div>
-				</fieldset>
-			<% end %>
-    	<input type="submit">
+				<div class="vertical-tab-content-container">
+					<% @cookbooks.each_with_index do |cookbook,index| %>
+							<a href="" class="js-vertical-tab-accordion-heading vertical-tab-accordion-heading" rel="tab<%= index %>">
+								<%= cookbook.name %>
+							</a>
+							<div id="tab<%= index %>" class="js-vertical-tab-content vertical-tab-content">
+								<div class="expander-content cookbook-parameters-container">
+									<div class="cookbook-parameters">
+										<% cookbook.attributes.each do |a| %>
+
+										<label for="name"><%= a[:param] %></label>
+										<input id="name" name="<%= a[:param].delete "'" %>" type="text" placeholder="<%= a[:value] %>">
+										<% end %>
+									</div>
+								</div>
+							</div>
+					<% end %>
+				</div>
+			</div>
+			<input type="submit">
 		</form>
 	</div>
 </div>
-
 <script>
-$(document).ready(function() {
-	$('.expander-trigger').click(function(){
-		$(this).toggleClass("expander-hidden");
-	});
+$(".js-vertical-tab-content").hide();
+$(".js-vertical-tab-content:first").show();
+
+/* if in tab mode */
+$(".js-vertical-tab").click(function(event) {
+  event.preventDefault();
+
+  $(".js-vertical-tab-content").hide();
+  var activeTab = $(this).attr("rel");
+  $("#"+activeTab).show();
+
+  $(".js-vertical-tab").removeClass("is-active");
+  $(this).addClass("is-active");
+
+  $(".js-vertical-tab-accordion-heading").removeClass("is-active");
+  $(".js-vertical-tab-accordion-heading[rel^='"+activeTab+"']").addClass("is-active");
 });
 
+/* if in accordion mode */
+$(".js-vertical-tab-accordion-heading").click(function(event) {
+  event.preventDefault();
+
+  $(".js-vertical-tab-content").hide();
+  var accordion_activeTab = $(this).attr("rel");
+  $("#"+accordion_activeTab).show();
+
+  $(".js-vertical-tab-accordion-heading").removeClass("is-active");
+  $(this).addClass("is-active");
+
+  $(".js-vertical-tab").removeClass("is-active");
+  $(".js-vertical-tab[rel^='"+accordion_activeTab+"']").addClass("is-active");
+});
 </script>
