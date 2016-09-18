@@ -424,7 +424,7 @@ h6, .h6 {
     padding: 0.75em 0.809em;
   }
   .vertical-tabs-container .vertical-tab.is-active {
-    background-color: #f7f7f7;
+    background-color: #d9e9fb;
     margin-right: -1px;
   }
 }
@@ -451,13 +451,13 @@ h6, .h6 {
   .vertical-tabs-container .vertical-tab-content-container {
     height: 18.75em;
     width: 80%;
-    background-color: #f7f7f7;
+    background-color: #d9e9fb;
     display: inline-block;
   }
 }
 
 .vertical-tabs-container .vertical-tab-content {
-  background-color: #f7f7f7;
+  background-color: #d9e9fb;
   padding: 1.5em 1.618em;
 }
 
@@ -491,7 +491,7 @@ h6, .h6 {
 }
 
 .vertical-tabs-container .vertical-tab-accordion-heading.is-active {
-  background: #f7f7f7;
+  background: #d9e9fb;
   border-bottom: 0;
 }
 
